@@ -94,7 +94,7 @@ tile_map_data = PackedByteArray("AAD8/wQAAAABAAAAAAD9/wQAAAABAAAAAAD+/wQAAAABAAA
 tile_set = SubResource("TileSet_fvorn")
 
 [node name="Spieler" parent="." instance=ExtResource("1_lxdia")]
-position = Vector2(0, -12)
+position = Vector2(3, -3)
 
 [node name="Camera" type="Camera2D" parent="Spieler"]
 zoom = Vector2(4, 4)
