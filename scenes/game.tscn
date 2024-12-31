@@ -1,10 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://deub16elltp7f"]
+[gd_scene load_steps=5 format=4 uid="uid://deub16elltp7f"]
 
 [ext_resource type="PackedScene" uid="uid://d2t45pnw2irov" path="res://scenes/spieler.tscn" id="1_lxdia"]
 [ext_resource type="Texture2D" uid="uid://dq87o5ncqh71y" path="res://assets/sprites/image Tileset.png" id="2_g13tg"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q8nx5"]
-distance = -53.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yfl6w"]
 texture = ExtResource("2_g13tg")
@@ -91,19 +88,13 @@ sources/0 = SubResource("TileSetAtlasSource_yfl6w")
 
 [node name="Game" type="Node2D"]
 
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(0, -12)
+tile_map_data = PackedByteArray("AAD8/wQAAAABAAAAAAD9/wQAAAABAAAAAAD+/wQAAAABAAAAAAD//wQAAAABAAAAAAAAAAQAAAABAAAAAAABAAQAAAABAAAAAAACAAQAAAABAAAAAAADAAQAAAABAAAAAAABAAMAAAABAAAAAAACAAMAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_fvorn")
+
 [node name="Spieler" parent="." instance=ExtResource("1_lxdia")]
 position = Vector2(0, -12)
 
 [node name="Camera" type="Camera2D" parent="Spieler"]
 zoom = Vector2(4, 4)
-
-[node name="Welt" type="StaticBody2D" parent="."]
-position = Vector2(0, -12)
-
-[node name="WorldBound" type="CollisionShape2D" parent="Welt"]
-position = Vector2(0, 12)
-shape = SubResource("WorldBoundaryShape2D_q8nx5")
-
-[node name="TileMapLayer" type="TileMapLayer" parent="Welt"]
-tile_map_data = PackedByteArray("AAD8/wQAAAABAAAAAAD9/wQAAAABAAAAAAD+/wQAAAABAAAAAAD//wQAAAABAAAAAAAAAAQAAAABAAAAAAABAAQAAAABAAAAAAACAAQAAAABAAAAAAADAAQAAAABAAAAAAABAAMAAAABAAAAAAACAAMAAAABAAAAAAA=")
-tile_set = SubResource("TileSet_fvorn")
