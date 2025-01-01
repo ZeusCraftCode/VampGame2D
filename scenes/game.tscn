@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d2t45pnw2irov" path="res://scenes/spieler.tscn" id="1_lxdia"]
 [ext_resource type="Texture2D" uid="uid://dq87o5ncqh71y" path="res://assets/sprites/image Tileset.png" id="2_g13tg"]
-[ext_resource type="PackedScene" path="res://scenes/dark_samurai.tscn" id="2_gwvm2"]
+[ext_resource type="PackedScene" uid="uid://bx3c4n2yt0gu8" path="res://scenes/darkSamurai/dark_samurai.tscn" id="2_gwvm2"]
 [ext_resource type="Texture2D" uid="uid://c6wjkf0vkjsn" path="res://assets/sprites/kathedrale_tiles.png" id="3_v5yuc"]
 [ext_resource type="Texture2D" uid="uid://be3scn2hvjveu" path="res://assets/sprites/kathedrale_hintergrund.png" id="4_etvr3"]
 [ext_resource type="PackedScene" uid="uid://cr8s6tj4qm1x0" path="res://scenes/killzone.tscn" id="5_gi83a"]
@@ -249,7 +249,7 @@ tile_set = SubResource("TileSet_fvorn")
 
 [node name="Kathedrale" type="TileMapLayer" parent="Blöcke"]
 z_index = -1
-tile_map_data = PackedByteArray("AAAIAAIAAAAAAAIAAAD5/wIAAAAAAAIAAAD6/wIAAAAAAAIAAAD7/wIAAAAAAAIAAAD8/wIAAAAAAAIAAAD9/wIAAAAAAAIAAAD+/wIAAAAAAAIAAAD//wIAAAAAAAIAAAAAAAIAAAAAAAIAAAABAAIAAAAAAAIAAAACAAIAAAAAAAIAAAADAAIAAAAAAAIAAAAEAAIAAAAAAAIAAAAFAAIAAAAAAAIAAAAGAAIAAAAAAAIAAAAHAAIAAAAAAAIAAAAJAAIAAAAAAAIAAAD4/wIAAAAAAAIAAAD3/wIAAAAAAAIAAAD2/wIAAAAAAAIAAAA=")
+tile_map_data = PackedByteArray("AAAIAAIAAAAAAAIAAAD5/wIAAAAAAAIAAAD6/wIAAAAAAAIAAAD7/wIAAAAAAAIAAAD8/wIAAAAAAAIAAAD9/wIAAAAAAAIAAAD+/wIAAAAAAAIAAAD//wIAAAAAAAIAAAAAAAIAAAAAAAIAAAABAAIAAAAAAAIAAAACAAIAAAAAAAIAAAADAAIAAAAAAAIAAAAEAAIAAAABAAEAAAAFAAIAAAAAAAIAAAAGAAIAAAAAAAIAAAAHAAIAAAAAAAIAAAAJAAIAAAAAAAIAAAD4/wIAAAAAAAIAAAD3/wIAAAAAAAIAAAD2/wIAAAAAAAIAAAA=")
 tile_set = SubResource("TileSet_c2yxe")
 
 [node name="Kathedrale hintergrund" type="TileMapLayer" parent="Blöcke"]
@@ -265,5 +265,4 @@ shape = SubResource("WorldBoundaryShape2D_f15lt")
 [node name="Gegner" type="Node" parent="."]
 
 [node name="DarkSamurai" parent="Gegner" instance=ExtResource("2_gwvm2")]
-position = Vector2(114, 16)
-script = null
+position = Vector2(89, 9)
