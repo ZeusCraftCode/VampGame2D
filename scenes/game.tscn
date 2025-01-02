@@ -265,4 +265,4 @@ shape = SubResource("WorldBoundaryShape2D_f15lt")
 [node name="Gegner" type="Node" parent="."]
 
 [node name="DarkSamurai" parent="Gegner" instance=ExtResource("2_gwvm2")]
-position = Vector2(89, 9)
+position = Vector2(318, -169)

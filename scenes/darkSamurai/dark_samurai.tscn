@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://bx3c4n2yt0gu8"]
+[gd_scene load_steps=27 format=3 uid="uid://bx3c4n2yt0gu8"]
 
 [ext_resource type="Script" path="res://scenes/darkSamurai/dark_samurai.gd" id="1_3mne0"]
 [ext_resource type="Texture2D" uid="uid://bv0k3rajk8sfl" path="res://assets/sprites/darkSamurai/DarkSamurai-idel.png" id="1_no2uo"]
 [ext_resource type="Texture2D" uid="uid://dm3bxvtd14wn8" path="res://assets/sprites/darkSamurai/DarkSamuraiAttack.png" id="2_vhsht"]
+[ext_resource type="Script" path="res://scenes/darkSamurai/player_notice_range.gd" id="4_ife80"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7kwgk"]
 atlas = ExtResource("2_vhsht")
@@ -148,7 +149,7 @@ radius = 9.0
 height = 32.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_txlb3"]
-size = Vector2(154, 50)
+size = Vector2(322, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ngvt"]
 size = Vector2(62, 50)
@@ -168,10 +169,11 @@ offset = Vector2(7, 0)
 position = Vector2(-1, 1)
 shape = SubResource("CapsuleShape2D_w2ucx")
 
-[node name="TriggerArea" type="Area2D" parent="."]
+[node name="PlayerNoticeRange" type="Area2D" parent="."]
 position = Vector2(0, -12)
+script = ExtResource("4_ife80")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerNoticeRange"]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_txlb3")
 debug_color = Color(0.0862745, 0.737255, 0.168627, 0.145098)
@@ -184,7 +186,9 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_0ngvt")
 debug_color = Color(0.976471, 0.133333, 0.168627, 0.172549)
 
-[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
-[connection signal="body_exited" from="TriggerArea" to="." method="_on_trigger_area_body_exited"]
+[connection signal="body_entered" from="PlayerNoticeRange" to="." method="_on_trigger_area_body_entered"]
+[connection signal="body_entered" from="PlayerNoticeRange" to="PlayerNoticeRange" method="_on_body_entered"]
+[connection signal="body_exited" from="PlayerNoticeRange" to="." method="_on_trigger_area_body_exited"]
+[connection signal="body_exited" from="PlayerNoticeRange" to="PlayerNoticeRange" method="_on_body_exited"]
 [connection signal="body_entered" from="TriggerAreaAttack" to="." method="_on_trigger_area_body_entered"]
 [connection signal="body_exited" from="TriggerAreaAttack" to="." method="_on_trigger_area_body_exited"]

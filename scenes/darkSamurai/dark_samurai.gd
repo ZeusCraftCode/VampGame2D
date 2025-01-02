@@ -25,14 +25,14 @@ func _physics_process(delta: float) -> void:
 
 
 
-	
+func playerEnteredNoticeArea(body: Node2D) -> void:
+	if body == target:
+		print("In: " + body.to_string())
+		followPlayer = true
 
 
-func _on_trigger_area_body_entered(body: Node2D) -> void:
-	print("In")
-	followPlayer = true
-
-func _on_trigger_area_body_exited(body: Node2D) -> void:
-	print("Out")
-	velocity.x = 0
-	followPlayer = false
+func playerExitedNoticeArea(body: Node2D) -> void:
+	if body == target:
+		print("Out")
+		velocity.x = 0
+		followPlayer = false

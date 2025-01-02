@@ -155,7 +155,7 @@ animations = [{
 
 [node name="Spieler" type="CharacterBody2D"]
 z_index = 5
-collision_layer = 2
+collision_layer = 3
 script = ExtResource("1_l3emj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
