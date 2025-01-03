@@ -1,8 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://d2t45pnw2irov"]
+[gd_scene load_steps=27 format=3 uid="uid://d2t45pnw2irov"]
 
 [ext_resource type="Script" path="res://scripts/spieler.gd" id="1_l3emj"]
+[ext_resource type="Resource" uid="uid://c8wifrmt38g6v" path="res://inventar/SpielerInventar.tres" id="2_ax67a"]
 [ext_resource type="Texture2D" uid="uid://b3c6sr6whecgq" path="res://assets/sprites/Protagonist_idle.png" id="2_fskh6"]
 [ext_resource type="Texture2D" uid="uid://cfh2aped04ih7" path="res://assets/sprites/ProtagonistDeatht.png" id="2_yqo52"]
+[ext_resource type="PackedScene" uid="uid://b7sj6arm80aoa" path="res://inventar/inv_ui.tscn" id="5_wxcw2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3a0pa"]
 size = Vector2(7, 18)
@@ -157,6 +159,7 @@ animations = [{
 z_index = 5
 collision_layer = 3
 script = ExtResource("1_l3emj")
+inv = ExtResource("2_ax67a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -18)
@@ -168,3 +171,9 @@ position = Vector2(-0.799999, -18.8)
 scale = Vector2(0.63125, 0.6)
 sprite_frames = SubResource("SpriteFrames_b62ct")
 autoplay = "default"
+
+[node name="Inv_UI" parent="." instance=ExtResource("5_wxcw2")]
+offset_left = -143.0
+offset_top = -125.0
+offset_right = 20.0
+offset_bottom = -1.0
