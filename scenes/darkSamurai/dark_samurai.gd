@@ -20,6 +20,8 @@ func _physics_process(delta: float) -> void:
 	if followPlayer:
 		var direction = (target.position - position).normalized()
 		velocity.x = direction.x * SPEED * delta
+		if $AnimatedSprite2D.animation != "attack":
+			$AnimatedSprite2D.flip_h = direction.x < 0
 	
 	move_and_slide()
 
@@ -36,3 +38,8 @@ func playerExitedNoticeArea(body: Node2D) -> void:
 		print("Out")
 		velocity.x = 0
 		followPlayer = false
+
+func playerEnteredAttackArea(body: Node2D) -> void:
+	if body == target:
+		print("Attack")
+		$AnimatedSprite2D.play("attack")
