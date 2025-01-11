@@ -6,6 +6,9 @@ const JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+@export var inv: Inv
+
+#Laufen &S pringen
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -30,3 +33,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	#Dreht animation
+	if direction > 0:
+		animated_sprite.flip_h  = false
+	elif direction < 0:
+		animated_sprite.flip_h  = true
+	
