@@ -177,3 +177,12 @@ offset_left = -143.0
 offset_top = -125.0
 offset_right = 20.0
 offset_bottom = -1.0
+
+[node name="dash_cooldown" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="dash_erneut" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="dash_erneut" to="." method="_on_dash_erneut_timeout"]
