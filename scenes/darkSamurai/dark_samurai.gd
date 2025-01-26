@@ -46,5 +46,6 @@ func playerEnteredAttackArea(body: Node2D) -> void:
 	if body == target:
 		print("Attack")
 		$AnimatedSprite2D.play("attack")
-		currentHealth -= 5
-		print(currentHealth)
+		#target.currentHealth -= 5
+		target.dealDamge(5)
+		print(target.currentHealth)

@@ -59,3 +59,16 @@ func _on_dash_cooldown_timeout() -> void:
 #Ermöglicht erneutes Dashen nach Timer ablauf 
 func _on_dash_erneut_timeout() -> void:
 	can_dash  = true
+
+
+func _on_leben_value_changed(value: float) -> void:
+	pass # Replace with function body.
+
+func dealDamge(damageValue: int) -> void:
+	print("damgeRecived")
+	currentHealth -= damageValue
+	print(currentHealth)
+	$leben.value = currentHealth
+	if currentHealth <= 0 :
+		print("Spieler ist Tod")
+	
