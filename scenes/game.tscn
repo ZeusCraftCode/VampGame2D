@@ -244,11 +244,11 @@ limit_smoothed = true
 rotation_smoothing_enabled = true
 
 [node name="leben" type="TextureProgressBar" parent="Spieler"]
-offset_left = -142.0
-offset_top = -146.0
-offset_right = -110.0
-offset_bottom = -114.0
-scale = Vector2(2, 2)
+offset_left = -238.0
+offset_top = -226.0
+offset_right = -206.0
+offset_bottom = -194.0
+scale = Vector2(4, 4)
 step = 5.0
 value = 100.0
 nine_patch_stretch = true
