@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ix3kx8jxp6ah"
-path="res://.godot/imported/InventarHintergrund.png-72daecbb01bd75358a2d260a56795931.ctex"
+uid="uid://ce7vyv2jamlh1"
+path="res://.godot/imported/LeereLeiste.png-1a36917f6dd35bf79a61e0b1cfea6cd9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventar/InventarHintergrund.png"
-dest_files=["res://.godot/imported/InventarHintergrund.png-72daecbb01bd75358a2d260a56795931.ctex"]
+source_file="res://assets/sprites/LeereLeiste.png"
+dest_files=["res://.godot/imported/LeereLeiste.png-1a36917f6dd35bf79a61e0b1cfea6cd9.ctex"]
 
 [params]
 

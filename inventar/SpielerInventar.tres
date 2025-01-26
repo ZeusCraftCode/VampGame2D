@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Inv" load_steps=4 format=3 uid="uid://c8wifrmt38g6v"]
-
-[ext_resource type="Script" path="res://inventar/inventar_item.gd" id="1_pggqa"]
-[ext_resource type="Resource" uid="uid://bea11c3i0qmbp" path="res://inventar/HolzSchwert.tres" id="2_mrxp0"]
-[ext_resource type="Script" path="res://inventar/Inventar.gd" id="3_h0d0b"]
-
-[resource]
-script = ExtResource("3_h0d0b")
-item = Array[ExtResource("1_pggqa")]([ExtResource("2_mrxp0"), null, null, null, null, null, null, null, null, null, null, null])

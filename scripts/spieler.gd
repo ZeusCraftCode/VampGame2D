@@ -1,15 +1,19 @@
 extends CharacterBody2D
+class_name Spieler
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@export var maxHealth = 100
+@onready var currentHealth: int = maxHealth
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 const DASH_SPEED = 300.0
+var HP = 100 
 var dashing = false
 var can_dash = true
+var E = 1
 
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-@export var inv: Inv
 
 #Laufen & Springen
 func _physics_process(delta: float) -> void:
@@ -47,15 +51,11 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h  = false
 	elif direction < 0:
 		animated_sprite.flip_h  = true
-	
-	
-func collect(item):
-	inv.insert(item)
 
-#Dash stoppen
+#Stoppt Dash nach Timer ablauf um unendlichen dash zu verhindern
 func _on_dash_cooldown_timeout() -> void:
 	dashing = false
 
-
+#Ermöglicht erneutes Dashen nach Timer ablauf 
 func _on_dash_erneut_timeout() -> void:
 	can_dash  = true

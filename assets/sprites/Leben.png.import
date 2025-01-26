@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc46vefm5dj2k"
-path="res://.godot/imported/Wooden_Sword.png-e93c36bc0c99162c03d03e3c385aeb3b.ctex"
+uid="uid://cfuki530nbra0"
+path="res://.godot/imported/Leben.png-dcc405028f6c266d1a237b06b018b6b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Wooden_Sword.png"
-dest_files=["res://.godot/imported/Wooden_Sword.png-e93c36bc0c99162c03d03e3c385aeb3b.ctex"]
+source_file="res://assets/sprites/Leben.png"
+dest_files=["res://.godot/imported/Leben.png-dcc405028f6c266d1a237b06b018b6b9.ctex"]
 
 [params]
 

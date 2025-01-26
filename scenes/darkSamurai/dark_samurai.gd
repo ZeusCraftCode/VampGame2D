@@ -6,6 +6,9 @@ const JUMP_VELOCITY = -400.0
 
 @onready var target=$"../../Spieler"
 @onready var followPlayer = false
+@export var maxHealth = 100
+@onready var currentHealth: int = maxHealth
+signal healthChanged
 
 func _ready() -> void:
 	if not target:
@@ -43,3 +46,5 @@ func playerEnteredAttackArea(body: Node2D) -> void:
 	if body == target:
 		print("Attack")
 		$AnimatedSprite2D.play("attack")
+		currentHealth -= 5
+		print(currentHealth)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://bx3c4n2yt0gu8"]
+[gd_scene load_steps=29 format=3 uid="uid://bx3c4n2yt0gu8"]
 
 [ext_resource type="Script" path="res://scenes/darkSamurai/dark_samurai.gd" id="1_3mne0"]
 [ext_resource type="Texture2D" uid="uid://bv0k3rajk8sfl" path="res://assets/sprites/darkSamurai/DarkSamurai-idel.png" id="1_no2uo"]
 [ext_resource type="Texture2D" uid="uid://dm3bxvtd14wn8" path="res://assets/sprites/darkSamurai/DarkSamuraiAttack.png" id="2_vhsht"]
 [ext_resource type="Script" path="res://scenes/darkSamurai/player_notice_range.gd" id="4_ife80"]
 [ext_resource type="Script" path="res://scenes/darkSamurai/trigger_area_attack.gd" id="5_iimqy"]
+[ext_resource type="Script" path="res://scenes/darkSamurai/hitbox.gd" id="6_cgom4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7kwgk"]
 atlas = ExtResource("2_vhsht")
@@ -131,7 +132,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -164,6 +165,8 @@ scale = Vector2(1, 1.01758)
 sprite_frames = SubResource("SpriteFrames_slu7f")
 animation = &"attack"
 autoplay = "default"
+frame = 15
+frame_progress = 1.0
 offset = Vector2(7, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -183,13 +186,15 @@ debug_color = Color(0.0862745, 0.737255, 0.168627, 0.145098)
 position = Vector2(0, -12)
 script = ExtResource("5_iimqy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerAreaAttack"]
+[node name="hitbox" type="CollisionShape2D" parent="TriggerAreaAttack"]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_0ngvt")
 debug_color = Color(0.976471, 0.133333, 0.168627, 0.172549)
+script = ExtResource("6_cgom4")
 
 [connection signal="body_entered" from="PlayerNoticeRange" to="." method="_on_trigger_area_body_entered"]
 [connection signal="body_entered" from="PlayerNoticeRange" to="PlayerNoticeRange" method="_on_body_entered"]
 [connection signal="body_exited" from="PlayerNoticeRange" to="." method="_on_trigger_area_body_exited"]
 [connection signal="body_exited" from="PlayerNoticeRange" to="PlayerNoticeRange" method="_on_body_exited"]
+[connection signal="area_entered" from="TriggerAreaAttack" to="." method="_on_trigger_area_attack_area_entered"]
 [connection signal="body_entered" from="TriggerAreaAttack" to="TriggerAreaAttack" method="_on_body_entered"]
