@@ -4,6 +4,7 @@ class_name Spieler
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var maxHealth = 100
 @onready var currentHealth: int = maxHealth
+@onready var ausdauer: TextureProgressBar = $ausdauer
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
@@ -22,12 +23,14 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("Springen") and is_on_floor():
+	if Input.is_action_just_pressed("Springen") and is_on_floor() and ausdauer.value >= 10:
 		velocity.y = JUMP_VELOCITY
+		ausdauer.value -= 10
 	
-	if Input.is_action_just_pressed("Dash") and is_on_floor() and can_dash:
+	if Input.is_action_just_pressed("Dash") and is_on_floor() and can_dash and ausdauer.value >= 20:
 		dashing = true
 		can_dash = false
+		ausdauer.value -= 20
 		$dash_cooldown.start()
 		$dash_erneut.start()
 	
@@ -61,7 +64,7 @@ func _on_dash_erneut_timeout() -> void:
 	can_dash  = true
 
 
-func _on_leben_value_changed(value: float) -> void:
+func _on_leben_value_changed():
 	pass # Replace with function body.
 
 func dealDamge(damageValue: int) -> void:

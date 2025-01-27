@@ -12,7 +12,7 @@ func _on_timer_timeout() -> void:
 
 
 #Fullscreen an/aus
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("Fullscreen"):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	elif Input.is_action_just_pressed("Window"):

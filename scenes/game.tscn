@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://deub16elltp7f"]
+[gd_scene load_steps=18 format=4 uid="uid://deub16elltp7f"]
 
 [ext_resource type="PackedScene" uid="uid://d2t45pnw2irov" path="res://scenes/spieler.tscn" id="1_lxdia"]
 [ext_resource type="Texture2D" uid="uid://dq87o5ncqh71y" path="res://assets/sprites/image Tileset.png" id="2_g13tg"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cfuki530nbra0" path="res://assets/sprites/Leben.png" id="3_fd2h5"]
 [ext_resource type="Texture2D" uid="uid://c6wjkf0vkjsn" path="res://assets/sprites/kathedrale_tiles.png" id="3_v5yuc"]
 [ext_resource type="Texture2D" uid="uid://be3scn2hvjveu" path="res://assets/sprites/kathedrale_hintergrund.png" id="4_etvr3"]
+[ext_resource type="Texture2D" uid="uid://dyciv8wbsj20r" path="res://assets/sprites/Ausdauer.png" id="4_ht7ws"]
+[ext_resource type="Script" path="res://scenes/ausdauer.gd" id="5_1e38n"]
 [ext_resource type="PackedScene" uid="uid://cr8s6tj4qm1x0" path="res://scenes/killzone.tscn" id="5_gi83a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yfl6w"]
@@ -255,6 +257,22 @@ nine_patch_stretch = true
 texture_under = ExtResource("2_x7h87")
 texture_progress = ExtResource("3_fd2h5")
 
+[node name="ausdauer" type="TextureProgressBar" parent="Spieler"]
+offset_left = -238.0
+offset_top = -206.0
+offset_right = -206.0
+offset_bottom = -174.0
+scale = Vector2(4, 4)
+nine_patch_stretch = true
+texture_under = ExtResource("2_x7h87")
+texture_progress = ExtResource("4_ht7ws")
+script = ExtResource("5_1e38n")
+
+[node name="Aufladen" type="Timer" parent="Spieler/ausdauer"]
+process_callback = 0
+wait_time = 0.1
+autostart = true
+
 [node name="Blöcke" type="Node" parent="."]
 
 [node name="Boden" type="TileMapLayer" parent="Blöcke"]
@@ -281,3 +299,5 @@ shape = SubResource("WorldBoundaryShape2D_f15lt")
 
 [node name="DarkSamurai" parent="Gegner" instance=ExtResource("2_gwvm2")]
 position = Vector2(322, 19)
+
+[connection signal="timeout" from="Spieler/ausdauer/Aufladen" to="Spieler/ausdauer" method="_on_aufladen_timeout"]

@@ -8,7 +8,6 @@ const JUMP_VELOCITY = -400.0
 @onready var followPlayer = false
 @export var maxHealth = 100
 @onready var currentHealth: int = maxHealth
-signal healthChanged
 
 func _ready() -> void:
 	if not target:
