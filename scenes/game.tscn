@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://deub16elltp7f"]
+[gd_scene load_steps=19 format=4 uid="uid://deub16elltp7f"]
 
 [ext_resource type="PackedScene" uid="uid://d2t45pnw2irov" path="res://scenes/spieler.tscn" id="1_lxdia"]
 [ext_resource type="Texture2D" uid="uid://dq87o5ncqh71y" path="res://assets/sprites/image Tileset.png" id="2_g13tg"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dyciv8wbsj20r" path="res://assets/sprites/Ausdauer.png" id="4_ht7ws"]
 [ext_resource type="Script" path="res://scenes/ausdauer.gd" id="5_1e38n"]
 [ext_resource type="PackedScene" uid="uid://cr8s6tj4qm1x0" path="res://scenes/killzone.tscn" id="5_gi83a"]
+[ext_resource type="Texture2D" uid="uid://ciw2rhu41c8dv" path="res://assets/sprites/Seelen.png" id="6_auoqf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yfl6w"]
 texture = ExtResource("2_g13tg")
@@ -272,6 +273,21 @@ script = ExtResource("5_1e38n")
 process_callback = 0
 wait_time = 0.1
 autostart = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Spieler"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 212.0
+offset_top = 59.0
+offset_right = 252.0
+offset_bottom = 99.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_auoqf")
 
 [node name="Blöcke" type="Node" parent="."]
 
